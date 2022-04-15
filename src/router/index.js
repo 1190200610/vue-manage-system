@@ -21,28 +21,28 @@ const routes = [
                 path: "/table",
                 name: "basetable",
                 meta: {
-                    title: '表格'
+                    title: '用户信息'
                 },
                 component: () => import ( /* webpackChunkName: "table" */ "../views/BaseTable.vue")
             }, {
                 path: "/charts",
                 name: "basecharts",
                 meta: {
-                    title: '图表'
+                    title: '舆论领袖查询'
                 },
                 component: () => import ( /* webpackChunkName: "charts" */ "../views/BaseCharts.vue")
             }, {
                 path: "/form",
                 name: "baseform",
                 meta: {
-                    title: '表单'
+                    title: '关键字检索'
                 },
                 component: () => import ( /* webpackChunkName: "form" */ "../views/BaseForm.vue")
             }, {
                 path: "/tabs",
                 name: "tabs",
                 meta: {
-                    title: 'tab标签'
+                    title: '热榜话题'
                 },
                 component: () => import ( /* webpackChunkName: "tabs" */ "../views/Tabs.vue")
             }, {
@@ -78,7 +78,7 @@ const routes = [
                 path: "/icon",
                 name: "icon",
                 meta: {
-                    title: '自定义图标'
+                    title: '话题评论'
                 },
                 component: () => import ( /* webpackChunkName: "icon" */ "../views/Icon.vue")
             }, {

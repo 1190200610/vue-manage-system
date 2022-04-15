@@ -12,23 +12,26 @@
                     </div>
                     <div class="user-info-list">
                         上次登录时间：
-                        <span>2019-11-01</span>
+                        <span>2022-6-03</span>
                     </div>
                     <div class="user-info-list">
                         上次登录地点：
-                        <span>东莞</span>
+                        <span>黑龙江哈尔滨</span>
                     </div>
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
                     <template #header>
                         <div class="clearfix">
-                            <span>语言详情</span>
+                            <span>年龄分布</span>
                         </div>
                     </template>
-                    Vue
-                    <el-progress :percentage="71.3" color="#42b983"></el-progress>JavaScript
-                    <el-progress :percentage="24.1" color="#f1e05a"></el-progress>CSS
-                    <el-progress :percentage="13.7"></el-progress>HTML
+                    10-19
+                    <el-progress :percentage="31.4" color="#42b983"></el-progress>
+                    20-29
+                    <el-progress :percentage="54.1" color="#f1e05a"></el-progress>
+                    30-39
+                    <el-progress :percentage="23.7"></el-progress>
+                    40-49
                     <el-progress :percentage="5.9" color="#f56c6c"></el-progress>
                 </el-card>
             </el-col>
@@ -39,8 +42,8 @@
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-user-solid grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
-                                    <div>用户访问量</div>
+                                    <div class="grid-num">204</div>
+                                    <div>获取的微博用户</div>
                                 </div>
                             </div>
                         </el-card>
@@ -50,8 +53,8 @@
                             <div class="grid-content grid-con-2">
                                 <i class="el-icon-message-solid grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div class="grid-num">15524</div>
+                                    <div>爬取的评论数量</div>
                                 </div>
                             </div>
                         </el-card>
@@ -61,8 +64,8 @@
                             <div class="grid-content grid-con-3">
                                 <i class="el-icon-s-goods grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div class="grid-num">8642</div>
+                                    <div>获取的微博数量</div>
                                 </div>
                             </div>
                         </el-card>
@@ -71,8 +74,8 @@
                 <el-card shadow="hover" style="height:403px;">
                     <template #header>
                         <div class="clearfix">
-                            <span>待办事项</span>
-                            <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
+                            <span>实时热榜</span>
+                            <el-button style="float: right; padding: 3px 0" type="text">刷新</el-button>
                         </div>
                     </template>
 
@@ -106,9 +109,10 @@
                 </el-card>
             </el-col>
             <el-col :span="12">
-                <el-card shadow="hover">
-                    <schart ref="line" class="schart" canvasId="line" :options="options2"></schart>
-                </el-card>
+              <div class="schart-box">
+                <div class="content-title">饼状图</div>
+                <schart class="schart" canvasId="pie" :options="options3"></schart>
+              </div>
             </el-col>
         </el-row>
     </div>
@@ -157,70 +161,96 @@ export default {
         const options = {
             type: "bar",
             title: {
-                text: "最近一周各品类销售图",
+                text: "最近一周的话题热榜",
             },
             xRorate: 25,
             labels: ["周一", "周二", "周三", "周四", "周五"],
             datasets: [
                 {
-                    label: "家电",
-                    data: [234, 278, 270, 190, 230],
+                    label: "娱乐",
+                    data: [84, 78, 50, 60, 40],
                 },
                 {
-                    label: "百货",
-                    data: [164, 178, 190, 135, 160],
+                    label: "民生",
+                    data: [24, 18, 19, 25, 16],
                 },
                 {
-                    label: "食品",
-                    data: [144, 198, 150, 235, 120],
+                    label: "体育",
+                    data: [14, 8, 5, 6, 7],
                 },
             ],
         };
         const options2 = {
             type: "line",
             title: {
-                text: "最近几个月各品类销售趋势图",
+                text: "最近一周各话题趋势图",
             },
-            labels: ["6月", "7月", "8月", "9月", "10月"],
+            labels: ["周一", "周二", "周三", "周四", "周五"],
             datasets: [
-                {
-                    label: "家电",
-                    data: [234, 278, 270, 190, 230],
-                },
-                {
-                    label: "百货",
-                    data: [164, 178, 150, 135, 160],
-                },
-                {
-                    label: "食品",
-                    data: [74, 118, 200, 235, 90],
-                },
+              {
+                label: "娱乐",
+                data: [84, 78, 50, 60, 40],
+              },
+              {
+                label: "民生",
+                data: [24, 18, 19, 25, 16],
+              },
+              {
+                label: "体育",
+                data: [14, 8, 5, 6, 7],
+              },
             ],
         };
+
+      const options3 = {
+        type: "pie",
+        title: {
+          text: "服装品类销售饼状图",
+        },
+        legend: {
+          position: "left",
+        },
+        bgColor: "#fbfbfb",
+        labels: [
+          "T恤",
+          "牛仔裤",
+          "连衣裙",
+          "毛衣",
+          "七分裤",
+          "短裙",
+          "羽绒服",
+        ],
+        datasets: [
+          {
+            data: [334, 278, 190, 235, 260, 200, 141],
+          },
+        ],
+      };
+
         const todoList = reactive([
             {
-                title: "今天要修复100个bug",
+                title: "最温柔的牵挂",
                 status: false,
             },
             {
-                title: "今天要修复100个bug",
+                title: "咸粽子销量是甜粽子4倍",
                 status: false,
             },
             {
-                title: "今天要写100行代码加几个bug吧",
+                title: "齐司礼",
                 status: false,
             },
             {
-                title: "今天要修复100个bug",
+                title: "属于毕业的BGM",
                 status: false,
             },
             {
-                title: "今天要修复100个bug",
-                status: true,
+                title: "安慕希环保不墨迹",
+                status: false,
             },
             {
-                title: "今天要写100行代码加几个bug吧",
-                status: true,
+                title: "唱作人陈道明去世",
+                status: false,
             },
         ]);
 
@@ -229,6 +259,7 @@ export default {
             data,
             options,
             options2,
+            options3,
             todoList,
             role,
         };

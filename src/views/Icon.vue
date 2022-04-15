@@ -3,38 +3,71 @@
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item>
-                    <i class="el-icon-lx-emoji"></i> 自定义图标
+                    <i class="el-icon-lx-emoji"></i>话题评论
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
-            <h2>使用方法</h2>
-            <p style="line-height: 50px;">直接通过设置类名为 el-icon-lx-iconName 来使用即可。例如：（共{{iconList.length}}个图标）</p>
-            <p class="example-p">
-                <i class="el-icon-lx-redpacket_fill" style="font-size: 30px;color: #ff5900"></i>
-                <span>&lt;i class=&quot;el-icon-lx-redpacket_fill&quot;&gt;&lt;/i&gt;</span>
-            </p>
-            <p class="example-p">
-                <i class="el-icon-lx-weibo" style="font-size: 30px;color:#fd5656"></i>
-                <span>&lt;i class=&quot;el-icon-lx-weibo&quot;&gt;&lt;/i&gt;</span>
-            </p>
-            <p class="example-p">
-                <i class="el-icon-lx-emojifill" style="font-size: 30px;color: #ffc300"></i>
-                <span>&lt;i class=&quot;el-icon-lx-emojifill&quot;&gt;&lt;/i&gt;</span>
-            </p>
-            <br />
-            <h2>图标</h2>
-            <div class="search-box">
-                <el-input class="search" size="large" v-model="keyword" clearable placeholder="请输入图标名称"></el-input>
+<!--          Panel-->
+            <div class="demo-collapse">
+              <el-collapse v-model="activeName" accordion>
+                <el-collapse-item title="Consistency" name="1">
+
+                  <div>
+                      <el-descriptions title="User Info">
+                        <el-descriptions-item label="Username">kooriookami</el-descriptions-item>
+                        <el-descriptions-item label="Telephone">18100000000</el-descriptions-item>
+                        <el-descriptions-item label="Place">Suzhou</el-descriptions-item>
+                        <el-descriptions-item label="Remarks">
+                          <el-tag size="small">School</el-tag>
+                        </el-descriptions-item>
+                        <el-descriptions-item label="Address"
+                        >No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu
+                          Province</el-descriptions-item
+                        >
+                      </el-descriptions>
+                  </div>
+
+                </el-collapse-item>
+                <el-collapse-item title="Feedback" name="2">
+                  <div>
+                    Operation feedback: enable the users to clearly perceive their
+                    operations by style updates and interactive effects;
+                  </div>
+                  <div>
+                    Visual feedback: reflect current state by updating or rearranging
+                    elements of the page.
+                  </div>
+                </el-collapse-item>
+                <el-collapse-item title="Efficiency" name="3">
+                  <div>
+                    Simplify the process: keep operating process simple and intuitive;
+                  </div>
+                  <div>
+                    Definite and clear: enunciate your intentions clearly so that the
+                    users can quickly understand and make decisions;
+                  </div>
+                  <div>
+                    Easy to identify: the interface should be straightforward, which helps
+                    the users to identify and frees them from memorizing and recalling.
+                  </div>
+                </el-collapse-item>
+                <el-collapse-item title="Controllability" name="4">
+                  <div>
+                    Decision making: giving advices about operations is acceptable, but do
+                    not make decisions for the users;
+                  </div>
+                  <div>
+                    Controlled consequences: users should be granted the freedom to
+                    operate, including canceling, aborting or terminating current
+                    operation.
+                  </div>
+                </el-collapse-item>
+              </el-collapse>
             </div>
-            <ul>
-                <li class="icon-li" v-for="(item,index) in list" :key="index">
-                    <div class="icon-li-content">
-                        <i :class="`el-icon-lx-${item}`"></i>
-                        <span>{{item}}</span>
-                    </div>
-                </li>
-            </ul>
+
+
+
         </div>
     </div>
 </template>
@@ -44,133 +77,7 @@ import { computed, ref } from "vue";
 export default {
     name: "icon",
     setup() {
-        const iconList = [
-            "attentionforbid",
-            "attentionforbidfill",
-            "attention",
-            "attentionfill",
-            "tag",
-            "tagfill",
-            "people",
-            "peoplefill",
-            "notice",
-            "noticefill",
-            "mobile",
-            "mobilefill",
-            "voice",
-            "voicefill",
-            "unlock",
-            "lock",
-            "home",
-            "homefill",
-            "delete",
-            "deletefill",
-            "notification",
-            "notificationfill",
-            "notificationforbidfill",
-            "like",
-            "likefill",
-            "comment",
-            "commentfill",
-            "camera",
-            "camerafill",
-            "warn",
-            "warnfill",
-            "time",
-            "timefill",
-            "location",
-            "locationfill",
-            "favor",
-            "favorfill",
-            "skin",
-            "skinfill",
-            "news",
-            "newsfill",
-            "record",
-            "recordfill",
-            "emoji",
-            "emojifill",
-            "message",
-            "messagefill",
-            "goods",
-            "goodsfill",
-            "crown",
-            "crownfill",
-            "move",
-            "add",
-            "hot",
-            "hotfill",
-            "service",
-            "servicefill",
-            "present",
-            "presentfill",
-            "pic",
-            "picfill",
-            "rank",
-            "rankfill",
-            "male",
-            "female",
-            "down",
-            "top",
-            "recharge",
-            "rechargefill",
-            "forward",
-            "forwardfill",
-            "info",
-            "infofill",
-            "redpacket",
-            "redpacket_fill",
-            "roundadd",
-            "roundaddfill",
-            "friendadd",
-            "friendaddfill",
-            "cart",
-            "cartfill",
-            "more",
-            "moreandroid",
-            "back",
-            "right",
-            "shop",
-            "shopfill",
-            "question",
-            "questionfill",
-            "roundclose",
-            "roundclosefill",
-            "roundcheck",
-            "roundcheckfill",
-            "global",
-            "mail",
-            "punch",
-            "exit",
-            "upload",
-            "read",
-            "file",
-            "link",
-            "full",
-            "group",
-            "friend",
-            "profile",
-            "addressbook",
-            "calendar",
-            "text",
-            "copy",
-            "share",
-            "wifi",
-            "vipcard",
-            "weibo",
-            "remind",
-            "refresh",
-            "filter",
-            "settings",
-            "scan",
-            "qrcode",
-            "cascades",
-            "apps",
-            "sort",
-            "searchlist",
-            "search",
-            "edit",
-        ];
+        const iconList = [];
         const keyword = ref("");
         const list = computed(() => {
             return iconList.filter((item) => {

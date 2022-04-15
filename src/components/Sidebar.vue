@@ -46,47 +46,47 @@ export default {
             {
                 icon: "el-icon-lx-cascades",
                 index: "/table",
-                title: "基础表格",
+                title: "用户信息",
             },
             {
                 icon: "el-icon-lx-copy",
                 index: "/tabs",
-                title: "tab选项卡",
+                title: "热榜话题",
             },
             {
                 icon: "el-icon-lx-calendar",
-                index: "3",
-                title: "表单相关",
-                subs: [
-                    {
-                        index: "/form",
-                        title: "基本表单",
-                    },
-                    {
-                        index: "/upload",
-                        title: "文件上传",
-                    },
-                    {
-                        index: "4",
-                        title: "三级菜单",
-                        subs: [
-                            {
-                                index: "/editor",
-                                title: "富文本编辑器",
-                            },
-                        ],
-                    },
-                ],
+                index: "/form",
+                title: "关键字检索",
+                // subs: [
+                //     {
+                //         index: "/form",
+                //         title: "基本表单",
+                //     },
+                //     {
+                //         index: "/upload",
+                //         title: "文件上传",
+                //     },
+                //     {
+                //         index: "4",
+                //         title: "三级菜单",
+                //         subs: [
+                //             {
+                //                 index: "/editor",
+                //                 title: "富文本编辑器",
+                //             },
+                //         ],
+                //     },
+                // ],
             },
             {
                 icon: "el-icon-lx-emoji",
                 index: "/icon",
-                title: "自定义图标",
+                title: "话题评论",
             },
             {
                 icon: "el-icon-pie-chart",
                 index: "/charts",
-                title: "schart图表",
+                title: "舆论领袖查询",
             },
             {
                 icon: "el-icon-lx-global",
